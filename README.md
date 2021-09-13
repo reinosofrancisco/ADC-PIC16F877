@@ -1,1 +1,1 @@
-![Screenshot](images/schematic.png)
+![Alt text](images/schematic.png)
