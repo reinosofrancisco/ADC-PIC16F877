@@ -44,6 +44,9 @@ void ADC_Init()
     */
    ADCON0=0x00;  				// FREQ = OSC_FREQ / 2 && ADC Apagado
    ADCON1=(1<<SBIT_ADFM);  	// All pins are configured as Analog pins and ADC result is right justified  
+   
+   //ADCON1= 0b10001110;		//EVARISTO why use it like this?
+   
    /*
    ADCON1->ADFM = 1		=> Right justified. Six (6) Most Significant bits of ADRESH are read as ‘0’.
    IF  (ADCON1->ADFM = 0)	=> Left justified. Six (6) Least Significant bits of ADRESL are read as ‘0’.

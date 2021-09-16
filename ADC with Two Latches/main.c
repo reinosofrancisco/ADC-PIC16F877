@@ -18,7 +18,10 @@ int main()
     
    TRISB = 0x00; 				//Configuro todo el puerto B como Output
    TRISD &= ~((1<<7) | (1<<6));	//Pongo como Output los pines RD6 y RD7 (hago un AND con 0b00111111)
-
+   
+   //TRISA=0b00001;
+   TRISA |= (1<<0);				//EVARISTO WHY?
+   
    ADC_Init();             			//Initialize the ADC module
    
    //Vamos a usar LATCHS. El puerto
@@ -32,6 +35,8 @@ int main()
        
         adcValue = ADC_Read(0);       // Read the ADC value of channel zero
        //Leo el valor del ADC, son 10 bytes (8 de la parte baja y 2 de la parte alta)
+       
+        adcValue = adcValue * 4.88; //EVARISTO WHY?
         
        //Pongo LE=1 al LATCH-1 y pongo LE=0 para el LATCH-2 y le envio la parte BAJA del ADC
         PORTD |= (1<<6);
